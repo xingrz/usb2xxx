@@ -1,0 +1,26 @@
+name: test
+
+on: push
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+        node: ['14', '16']
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Node.js ${{ matrix.node }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node }}
+
+      - name: Build
+        run: npm install && npm run build
+
+      - name: Test
+        run: npm test
