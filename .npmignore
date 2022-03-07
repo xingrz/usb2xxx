@@ -1,4 +1,13 @@
 .DS_Store
 node_modules
 
+*.tgz
+*.log
+
 /src
+/test
+
+/.github
+/.vscode
+/jest.config.js
+/tsconfig.json
