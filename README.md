@@ -11,6 +11,27 @@ Node.js bindings for [USB2XXX](http://www.toomoss.com/product/1-cn.html) Bus Ada
 npm install --save usb2xxx
 ```
 
+## Support platforms
+
+| arch / platform | `darwin` | `linux` | `win32` |
+| --------------- | -------- | ------- | ------- |
+| `x64`           | ✓        | ✓       | TODO    |
+| `arm64`         | ×        | ✓       | ×       |
+
+## Features / TODOs
+
+- [x] GPIO
+- [ ] ADC
+- [ ] DAC
+- [ ] Sniffer
+- [ ] SPI
+- [ ] LIN
+- [ ] PWM
+- [ ] I²C
+- [ ] UART
+- [ ] CAN
+- [ ] CANFD
+
 ## Test
 
 ```sh
