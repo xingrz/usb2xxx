@@ -27,7 +27,7 @@ npm install --save usb2xxx
 - [ ] SPI
 - [ ] LIN
 - [ ] PWM
-- [ ] I²C
+- [x] I²C
 - [ ] UART
 - [ ] CAN
 - [ ] CANFD
