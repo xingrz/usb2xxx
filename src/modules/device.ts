@@ -6,11 +6,11 @@ import refStruct from 'ref-struct-di';
 import { declareFuncs, LibraryInstance } from '../native';
 
 const ArrayType = refArray(ref);
-const CharArrayType = ArrayType('char');
-const IntArrayType = ArrayType('int');
+const CharArray = ArrayType('char');
+const IntArray = ArrayType('int');
 
 const StructType = refStruct(ref);
-const DeviceInfoType = StructType({
+const DeviceInfoStruct = StructType({
   firmwareName: ArrayType('char', 32),
   buildDate: ArrayType('char', 32),
   hardwareVersion: 'int',
@@ -20,18 +20,18 @@ const DeviceInfoType = StructType({
 });
 
 export const DEVICE = declareFuncs({
-  'USB_ScanDevice': ['int', [IntArrayType]],
+  'USB_ScanDevice': ['int', [IntArray]],
   'USB_OpenDevice': ['bool', ['int']],
   'USB_CloseDevice': ['bool', ['int']],
   'USB_ResetDevice': ['bool', ['int']],
-  'DEV_GetDeviceInfo': ['bool', ['int', refType(DeviceInfoType), CharArrayType]],
+  'DEV_GetDeviceInfo': ['bool', ['int', refType(DeviceInfoStruct), CharArray]],
   'DEV_SetPowerLevel': ['bool', ['int', 'char']],
 });
 
 export function getDeviceStatic(lib: LibraryInstance<typeof DEVICE>) {
   return {
     async scan(): Promise<number[]> {
-      const devices = new IntArrayType(10);
+      const devices = new IntArray(10);
       const count = await promisify(lib.USB_ScanDevice.async)(devices);
       return devices.toArray().slice(0, count);
     },
@@ -44,8 +44,8 @@ export function getDeviceStatic(lib: LibraryInstance<typeof DEVICE>) {
 export function getDevice(lib: LibraryInstance<typeof DEVICE>, handle: number) {
   return {
     async getInfo(): Promise<DeviceInfo | undefined> {
-      const deviceInfo = new DeviceInfoType();
-      const functions = new CharArrayType(256);
+      const deviceInfo = new DeviceInfoStruct();
+      const functions = new CharArray(256);
       if (await promisify(lib.DEV_GetDeviceInfo.async)(handle, deviceInfo.ref(), functions)) {
         const { hardwareVersion: hv, firmwareVersion: fv, serialNumber: sn } = deviceInfo;
         return {
