@@ -32,6 +32,12 @@ npm install --save usb2xxx
 - [ ] CAN
 - [ ] CANFD
 
+## Run examples
+
+```ts
+npx ts-node examples/device/getDeviceInfo.ts
+```
+
 ## Test
 
 ```sh
