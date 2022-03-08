@@ -24,7 +24,7 @@ npm install --save usb2xxx
 - [ ] ADC
 - [ ] DAC
 - [ ] Sniffer
-- [ ] SPI
+- [x] SPI
 - [ ] LIN
 - [ ] PWM
 - [x] I²C
