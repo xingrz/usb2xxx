@@ -15,7 +15,7 @@ npm install --save usb2xxx
 
 | arch / platform | `darwin` | `linux` | `win32` |
 | --------------- | -------- | ------- | ------- |
-| `x64`           | ✓        | ✓       | TODO    |
+| `x64`           | ✓        | ✓       | ✓       |
 | `arm64`         | ×        | ✓       | ×       |
 
 ## Features / TODOs
