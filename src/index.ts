@@ -1,4 +1,4 @@
-import { Library } from 'ffi-napi';
+import { Library } from '@xingrz/ffi-napi';
 
 import { LIB_PATH } from './native';
 

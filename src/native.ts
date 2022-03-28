@@ -6,7 +6,7 @@ import {
   LibraryObjectDefinitionInferenceMarker,
   LibraryObjectDefinitionToLibraryDefinition,
   RTLD_NOW,
-} from 'ffi-napi';
+} from '@xingrz/ffi-napi';
 
 export const LIB_FILE = (() => {
   switch (process.platform) {

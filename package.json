@@ -24,11 +24,10 @@
   },
   "homepage": "https://github.com/xingrz/usb2xxx#readme",
   "dependencies": {
-    "@types/ffi-napi": "^4.0.5",
     "@types/ref-array-di": "^1.2.3",
     "@types/ref-napi": "^3.0.4",
     "@types/ref-struct-di": "^1.1.6",
-    "ffi-napi": "^4.0.3",
+    "@xingrz/ffi-napi": "^4.1.0-alpha.1",
     "ref-array-di": "^1.2.2",
     "ref-napi": "^3.0.3",
     "ref-struct-di": "^1.1.1"
