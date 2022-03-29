@@ -7,7 +7,6 @@
   "scripts": {
     "test": "jest",
     "build": "tsc -p .",
-    "install": "node ./lib/install.js",
     "prepublishOnly": "rm -rf lib && npm run build"
   },
   "repository": {

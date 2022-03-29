@@ -20,7 +20,7 @@ jobs:
           node-version: ${{ matrix.node }}
 
       - name: Build
-        run: npm install --ignore-scripts && npm run build
+        run: npm install && npm run build
 
       - name: Test
-        run: npm install && npm test
+        run: npm test
