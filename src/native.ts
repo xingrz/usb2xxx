@@ -1,5 +1,6 @@
-import { resolve } from 'path';
+import { dirname, resolve } from 'path';
 import {
+  Library,
   LibraryObject,
   LibraryObjectDefinitionBase,
   LibraryObjectDefinitionInferenceMarker,
@@ -19,6 +20,13 @@ if (!LIB_FILE) {
 }
 
 export const LIB_PATH = resolve(__dirname, '..', 'usb2xxx', process.platform, process.arch, LIB_FILE);
+
+if (process.platform == 'win32') {
+  const kernel32 = new Library('kernel32', {
+    'SetDllDirectoryA': ['bool', ['string']],
+  });
+  kernel32.SetDllDirectoryA(dirname(LIB_PATH));
+}
 
 type LibraryObjectDefinition = LibraryObjectDefinitionBase | LibraryObjectDefinitionInferenceMarker;
 
